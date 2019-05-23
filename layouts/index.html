@@ -7,12 +7,14 @@
       <p>{{ .Site.Params.frontsubline | safeHTML }}</p>
     </header>
     <p>{{ .Site.Params.frontintro | safeHTML }}</p>
+    {{ if isset .Site.Params "learnmorelink" }}
     <ul class="actions">
       <li><a href="{{ .Site.Params.learnmorelink }}" class="button big">{{ .Site.Params.learnmore }}</a></li>
     </ul>
+    {{ end }}
   </div>
   <span class="image object">
-    <img src="/images/juh-klein.jpg" alt="" />
+    <img src="{{ .Site.Params.introimage }}" alt="" />
   </span>
 </section>
 
@@ -23,37 +25,78 @@
   </header>
   <div class="features">
     <article>
+      {{ if isset .Site.Params.showcase "icon1" }}
       <span class="icon {{ .Site.Params.showcase.icon1 }}"></span>
+      {{end}}
+      {{ if isset .Site.Params.showcase "image1" }}
+      <span class="image object">
+        <img class="small img-popup" src="{{ with .Site.Params.showcase.image1 }}{{ . }}{{ end }}" href="{{ with .Site.Params.showcase.image1 }}{{ . }}{{ end }}" />
+      </span>
+      {{end}}
       <div class="content">
 	<h3>{{ .Site.Params.showcase.headline1 }}</h3>
 	<p>{{ .Site.Params.showcase.intro1 }}</p>
+    {{ if isset .Site.Params.showcase "ref1" }}
+      <a href="{{ .Site.Params.showcase.ref1 }}" class="button">Weiter <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+      {{ end }}
       </div>
     </article>
     <article>
+      {{ if isset .Site.Params.showcase "icon2" }}
       <span class="icon {{ .Site.Params.showcase.icon2 }}"></span>
+      {{end}}
+      {{ if isset .Site.Params.showcase "image2" }}
+      <span class="image object">
+        <img class="small img-popup" src="{{ with .Site.Params.showcase.image2 }}{{ . }}{{ end }}" href="{{ with .Site.Params.showcase.image2 }}{{ . }}{{ end }}" />
+      </span>
+      {{end}}
       <div class="content">
 	<h3>{{ .Site.Params.showcase.headline2 }}</h3>
 	<p>{{ .Site.Params.showcase.intro2 }}</p>
+  {{ if isset .Site.Params.showcase "ref2" }}
+    <a href="{{ .Site.Params.showcase.ref2 }}" class="button">Weiter <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+    {{ end }}
       </div>
     </article>
     <article>
+      {{ if isset .Site.Params.showcase "icon3" }}
       <span class="icon {{ .Site.Params.showcase.icon3 }}"></span>
+      {{end}}
+      {{ if isset .Site.Params.showcase "image3" }}
+      <span class="image object">
+        <img class="small img-popup" src="{{ with .Site.Params.showcase.image3 }}{{ . }}{{ end }}" href="{{ with .Site.Params.showcase.image3 }}{{ . }}{{ end }}" />
+      </span>
+      {{end}}
       <div class="content">
 	<h3>{{ .Site.Params.showcase.headline3 }}</h3>
 	<p>{{ .Site.Params.showcase.intro3 }}</p>
+  {{ if isset .Site.Params.showcase "ref3" }}
+    <a href="{{ .Site.Params.showcase.ref3 }}" class="button">Weiter <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+    {{ end }}
       </div>
     </article>
     <article>
+      {{ if isset .Site.Params.showcase "icon4" }}
       <span class="icon {{ .Site.Params.showcase.icon4 }}"></span>
+      {{end}}
+      {{ if isset .Site.Params.showcase "image4" }}
+      <span class="image object">
+        <img class="small img-popup" src="{{ with .Site.Params.showcase.image4 }}{{ . }}{{ end }}" href="{{ with .Site.Params.showcase.image4 }}{{ . }}{{ end }}" />
+      </span>
+      {{end}}
       <div class="content">
 	<h3>{{ .Site.Params.showcase.headline4 }}</h3>
 	<p>{{ .Site.Params.showcase.intro4 }}</p>
+  {{ if isset .Site.Params.showcase "ref4" }}
+    <a href="{{ .Site.Params.showcase.ref4 }}" class="button">Weiter <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+    {{ end }}
       </div>
     </article>
   </div>
 </section>
 
 <!-- Section -->
+{{ if isset .Site.Params.showcase "title2" }}
 <section>
   <header class="major">
     <h2>{{ .Site.Params.showcase.title2 }}</h2>
@@ -77,4 +120,5 @@
     {{ end }}
   </div>
 </section>
+{{ end }}
 {{ end }}
