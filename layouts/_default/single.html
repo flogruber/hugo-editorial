@@ -14,7 +14,13 @@
   <p><strong>{{ .Description }}</strong></p>
 
   <p>{{ .Content }}</p>
+
+  {{ range .Params.images }}
+
+  <!-- {{ .image_path }}{{ .caption }} -->
+  <img class="post_img img-popup" src="{{ with .image_path }}{{ . }}{{ end }}" href="{{ with .image_path }}{{ . }}{{ end }}" />
+  {{ end }}
+
 </section>
 {{ $page_link := .Permalink }}
 {{ end }}
-
